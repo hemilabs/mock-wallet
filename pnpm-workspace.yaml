@@ -28,8 +28,3 @@ trustPolicyExclude:
   # attestation, only 4.x do, and the required range is ^3.5.2 so we cannot
   # migrate to 4.x yet. Remove once the dependency chain allows 4.x.
   - "eslint-import-resolver-typescript@3.10.1"
-  # semver@6.3.1 (transitive via eslint-plugin-import -> eslint-config-bloq)
-  # is a 2023 backport published without provenance, while 7.x releases
-  # earlier in time had it, so `no-downgrade` flags it. There is no attested
-  # version to redirect to.
-  - "semver@6.3.1"
