@@ -32,8 +32,8 @@
   "repository": "hemilabs/mock-wallet",
   "scripts": {
     "build": "pnpm run clean && pnpm run build:esm && pnpm run build:types",
-    "build:esm": "tsc --noEmit false --outDir ./_esm --sourceMap",
-    "build:types": "tsc --noEmit false --declarationDir ./_types --emitDeclarationOnly --declaration --declarationMap",
+    "build:esm": "tsc -p tsconfig.build.json --noEmit false --outDir ./_esm --sourceMap",
+    "build:types": "tsc -p tsconfig.build.json --noEmit false --declarationDir ./_types --emitDeclarationOnly --declaration --declarationMap",
     "clean": "rm -rf ./_esm ./_types",
     "deps:check": "knip",
     "format:check": "prettier --check .",

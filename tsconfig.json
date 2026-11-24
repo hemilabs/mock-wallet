@@ -7,5 +7,5 @@
   },
   "exclude": ["node_modules"],
   "extends": "@tsconfig/node24/tsconfig.json",
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts", "test/**/*.ts"]
 }

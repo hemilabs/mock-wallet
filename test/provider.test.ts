@@ -2,7 +2,7 @@ import { createWalletClient, http, type LocalAccount } from "viem";
 import { hemi, mainnet } from "viem/chains";
 import { describe, expect, it, vi } from "vitest";
 
-import { createMockWalletProvider } from "../src/provider";
+import { createMockWalletProvider } from "../src/provider.js";
 
 vi.mock("viem", async (importOriginal) => ({
   ...(await importOriginal<typeof import("viem")>()),
