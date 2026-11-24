@@ -1,12 +1,7 @@
-import { configDefaults, defineConfig } from "vitest/config";
-
-const isCI = process.env.CI?.toLowerCase() === "true";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
     clearMocks: true,
-    ...(isCI
-      ? { testTimeout: 30_000 }
-      : { exclude: ["test/e2e/**", ...configDefaults.exclude] }),
   },
 });
