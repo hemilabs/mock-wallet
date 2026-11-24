@@ -100,6 +100,18 @@ describe("createMockWalletProvider", function () {
     });
   });
 
+  it("should reject a personal_sign for another address", async function () {
+    const client = createClient();
+
+    await expect(
+      createProvider().request({
+        method: "personal_sign",
+        params: ["0x68656c6c6f", otherAddress],
+      }),
+    ).rejects.toThrow("Invalid signer address");
+    expect(client.signMessage).not.toHaveBeenCalled();
+  });
+
   it("should reject a transaction from another address", async function () {
     const client = createClient();
 

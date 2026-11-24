@@ -62,10 +62,13 @@ export function createMockWalletProvider({
         case "eth_accounts":
         case "eth_requestAccounts":
           return client.getAddresses();
-        case "personal_sign":
-          return client.signMessage({
-            message: { raw: (params as [Hex])[0] },
-          });
+        case "personal_sign": {
+          const [message, signer] = params as [Hex, Hex];
+          if (!isAddressEqual(signer, account.address)) {
+            throw new Error("Invalid signer address");
+          }
+          return client.signMessage({ message: { raw: message } });
+        }
         case "eth_sendTransaction": {
           const [tx] = params as [
             { data?: Hex; from: Hex; to: Hex; value?: Hex },
