@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "erasableSyntaxOnly": true,
+    "lib": ["es2024", "DOM", "DOM.Iterable"],
+    "noEmit": true,
+    "types": []
+  },
+  "exclude": ["node_modules"],
+  "extends": "@tsconfig/node24/tsconfig.json",
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}
